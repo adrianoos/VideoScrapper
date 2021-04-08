@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col, Row } from 'reactstrap';
 
-const VideoCard = ({title, thumb, views, likes, OnDelete, date, VideoId}) => {
+const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, UpdateFavs}) => {
+
     return (
 
    <div className="VideoCard">
@@ -15,12 +16,17 @@ const VideoCard = ({title, thumb, views, likes, OnDelete, date, VideoId}) => {
                { VideoId ? <CardText>Sorry video id: <strong>"{VideoId}"</strong> is incorrect</CardText> : '' }
                { date ? <CardText>Added: {date}</CardText> : '' }
                   <Row form>
+
                     <Col md={3}>
                        { likes ? <Button>Play</Button> : '' }
                     </Col>
+                       {likes ?
                     <Col>
-                       { likes ? <Button>Favorites</Button> : ''}
-                    </Col>
+                       { favs ? <Button style={{background:'lightblue'}} onClick={() => UpdateFavs(date)}>Favorites</Button> :
+                       <Button onClick={() => UpdateFavs(date)}>Favorites</Button>
+                       }
+                    </Col> : ''
+                       }
                     <Col>
                        { likes ? <Button onClick={() => OnDelete(date)}>Delete</Button> :
                        <Button style={{backgroundColor: 'red'}} onClick={() => OnDelete(date)}>Delete</Button>}
