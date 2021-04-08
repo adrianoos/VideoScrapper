@@ -16,7 +16,6 @@ useEffect(() => {
  }, [urls])
 
 
-
  const FetchData = async (urls) =>{
    const newArr = []
 
@@ -24,7 +23,8 @@ useEffect(() => {
        const url = item.url
        let ID =''
        let response = ''
-      
+       let favs = item.favs
+
       if (url.includes("youtu") && url.length > 30) {
         ID = url.slice(url.search("=", 0) + 1, url.length);
         response = GetByIdYouTube(ID);
@@ -40,7 +40,7 @@ useEffect(() => {
        
        const data = await response;
        const date = item.date;
-       const newItem = { data, url, date, ID };
+       const newItem = { data, url, date, ID, favs };
        newArr.push(newItem)
     
 }
@@ -50,14 +50,24 @@ setDisplay(newArr)
 };
 
 const DeleteFromList = (date) =>{
- const urlsList = urls.filter(el => el.date !== date)
- const DisplayList = display.filter(el => el.date !== date)
+ const urlsList = urls.filter(el => el.date !== date) // filtruj urls/ wez wszystkie "el" zwróc => wszystkie z ID które nie równa się ID wchodzącemu
  setUrls(urlsList)
- setDisplay(DisplayList)
  localStorage.clear()
  window.localStorage.setItem('urlsStore', JSON.stringify(urlsList))
-
 };
+
+const UpdateFavs = (date) =>{
+  const clickedIndex = urls.findIndex((el) => (el.date === date))// tablica z klikniętym obiektem
+  let newAr = [...urls]
+  newAr[clickedIndex] = {...newAr[clickedIndex], favs: !newAr[clickedIndex].favs}
+
+setUrls(newAr)
+
+localStorage.clear()
+window.localStorage.setItem('urlsStore', JSON.stringify(newAr))
+
+console.log(urls)
+}
 
   return (
     <div className="App">
@@ -73,6 +83,7 @@ const DeleteFromList = (date) =>{
         <VideoWrapper 
         display={display}
         OnDelete={DeleteFromList}
+        UpdateFavs={UpdateFavs}
         />
       </Col>
     </div>
