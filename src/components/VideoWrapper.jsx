@@ -1,29 +1,48 @@
 import React from 'react';
 import { Pagination, PaginationItem, PaginationLink, Col, Row } from 'reactstrap';
 import { VideoCard } from './'
+import { ListItem } from './'
 
-const VideoWrapper = ({display, OnDelete, UpdateFavs}) => {
-//console.log(display)
-    const mappedVideos = display.map((item) => 
-       ( <VideoCard
+const VideoWrapper = ({display, OnDelete, UpdateFavs, favsDisplay, displayType}) => {
+
+    const ThumbNails = display.map((item) => 
+        <VideoCard
         key={item.date}
         date={item.date}
-        title={ item.data ? item.data.title : ''} // tego nie dostaje 
-        thumb={item.data ? item.data.thumbnail : 'https://via.placeholder.com/320x180?text=Incorrect ID'} // brak
-        views={item.data ? item.data.views : ''} // brak
-        likes={item.data ? item.data.likes : ''} // brak
+        title={ item.data ? item.data.title : ''}
+        thumb={item.data ? item.data.thumbnail : 'https://via.placeholder.com/320x180?text=Incorrect ID'} 
+        views={item.data ? item.data.views : ''}
+        likes={item.data ? item.data.likes : ''}
         VideoId={item.data ? '' : item.ID}
         favs={item.favs}
         OnDelete={OnDelete}
         UpdateFavs={UpdateFavs}
+        favsDisplay={favsDisplay}
         />)
+
+      const ListItems = display.map((item) => 
+      <ListItem
+      key={item.date}
+      date={item.date}
+      title={ item.data ? item.data.title : ''}
+      thumb={item.data ? item.data.thumbnail : 'https://via.placeholder.com/320x180?text=Incorrect ID'} 
+      views={item.data ? item.data.views : ''}
+      likes={item.data ? item.data.likes : ''}
+      VideoId={item.data ? '' : item.ID}
+      favs={item.favs}
+      OnDelete={OnDelete}
+      UpdateFavs={UpdateFavs}
+      favsDisplay={favsDisplay}
+      />
       )
+      
 
     return (
    <div className="VideoWrapper">
        <Col>
+       
        <Row>
-       {mappedVideos}
+       {displayType ? ListItems : ThumbNails }
        </Row>
        <Pagination aria-label="Page navigation example" style={{alignSelf: 'flex-end'}}>
        <PaginationItem>
@@ -48,8 +67,3 @@ const VideoWrapper = ({display, OnDelete, UpdateFavs}) => {
   
   export default VideoWrapper;
   
-
-  // Tu będą przyciski paginacyjne jeśli elementy nie będą się mieścić
-
-
-

@@ -1,61 +1,31 @@
 import React from 'react';
-import {
-    Navbar,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-  } from 'reactstrap';
+import {Row, Col, Button } from 'reactstrap';
 
-const NavButtons = () => {
+const NavButtons = ({ FavsToggle, FavsDisplay, SortbyDate, Sort, DeleteAll, ChangeDisplay, displayType }) => {
 
     return (
    <div className="NavButtons">
-       <Navbar color="light" light expand="md">
+     
+      <Row>
+        <Col>
+        { FavsDisplay ? <Button className='ml-1' style={{background: 'lightblue'}} onClick={() => FavsToggle()}>Favorites</Button> :
+         <Button className='m-1' onClick={() => FavsToggle()}>Favorites</Button>
+        }
+        {
+          Sort ? <Button className='m-1' style={{background: 'lightblue'}} onClick={() => SortbyDate()}>Newest</Button> : 
+          <Button className='m-1' onClick={() => SortbyDate()}>Oldest</Button>
+        }      
+        <Button className='m-1' onClick={() => DeleteAll()}>Delete All</Button>
+        {
+          displayType ? <Button className='m-1' style={{background: 'lightblue'}}  onClick={() => ChangeDisplay()}>Display: List</Button> :
+          <Button className='m-1' onClick={() => ChangeDisplay()}>Display: ThumbNails</Button>
+        }
         
-    
-          <Nav className="mr-auto" navbar>
-          <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Display
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Thumbs
-                </DropdownItem>
-                <DropdownItem>
-                  List
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Sort
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Newest
-                </DropdownItem>
-                <DropdownItem>
-                  Oldest
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            <NavItem>
-              <NavLink href="/components/">Favorites</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/components/">Add File</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/components/">Delete All</NavLink>
-            </NavItem>
-          </Nav>
+        
        
-      </Navbar>
+        </Col>
+      </Row>
+      
    </div>
     );
   }

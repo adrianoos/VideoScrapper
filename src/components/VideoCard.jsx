@@ -2,10 +2,12 @@ import React from 'react';
 
 import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button, Col, Row } from 'reactstrap';
 
-const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, UpdateFavs}) => {
+const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, UpdateFavs, favsDisplay}) => {
 
     return (
-
+// jeśli favsDisplay będzie true
+// to elementy które mają favs mają być widoczne 
+// bez favsDisplay wszystkie są widoczne
    <div className="VideoCard">
         <Card body inverse style={{ backgroundColor: '#333', borderColor: '#333', height:'100%'}}>
           <CardImg top width="100%" src={thumb} alt="Card image cap"/>
@@ -33,7 +35,8 @@ const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, U
                     </Col>
                   </Row>
             </CardBody>
-        </Card>
+        </Card> 
+
    </div>
     );
   }

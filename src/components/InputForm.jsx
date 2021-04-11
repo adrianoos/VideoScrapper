@@ -14,13 +14,13 @@ const InputForm = ({ urls, setUrls }) => {
         <hr className="my-2" />
         <p className="lead">Place where You can store your favorites videos</p>
       </Jumbotron>
-          <Input value={inpValue} onChange={UpdateInput} bsSize="lg" width="100%" id="urlInput" placeholder="Enter YT or Vimeo url">
+          <Input  value={inpValue} onChange={UpdateInput} bsSize="lg" width="100%" id="urlInput" placeholder="Enter YT or Vimeo url">
           </Input>
              {errors && <h2>{errors}</h2>}
      </FormGroup>
      <Row >
      <Col sm="12" md={{ size: 6, offset: 3 }}>
-     <Button size="sm" block>Add</Button>
+     <Button className='m-2' size="sm" block>Add</Button>
      </Col>
         
         </Row>
