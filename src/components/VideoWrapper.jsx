@@ -1,10 +1,10 @@
 import React from 'react';
-import { Pagination, PaginationItem, PaginationLink, Col, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import { VideoCard } from './'
 import { ListItem } from './'
 
 const VideoWrapper = ({display, OnDelete, UpdateFavs, favsDisplay, displayType}) => {
-
+console.log(display)
     const ThumbNails = display.map((item) => 
         <VideoCard
         key={item.date}
@@ -14,14 +14,17 @@ const VideoWrapper = ({display, OnDelete, UpdateFavs, favsDisplay, displayType})
         views={item.data ? item.data.views : ''}
         likes={item.data ? item.data.likes : ''}
         VideoId={item.data ? '' : item.ID}
+        PlayBackId={item.ID}
         favs={item.favs}
         OnDelete={OnDelete}
         UpdateFavs={UpdateFavs}
         favsDisplay={favsDisplay}
+        url={item.url}
         />)
 
       const ListItems = display.map((item) => 
       <ListItem
+      data={item.data}
       key={item.date}
       date={item.date}
       title={ item.data ? item.data.title : ''}
@@ -33,6 +36,8 @@ const VideoWrapper = ({display, OnDelete, UpdateFavs, favsDisplay, displayType})
       OnDelete={OnDelete}
       UpdateFavs={UpdateFavs}
       favsDisplay={favsDisplay}
+      PlayBackId={item.ID}
+      url={item.url}
       />
       )
       
@@ -40,25 +45,9 @@ const VideoWrapper = ({display, OnDelete, UpdateFavs, favsDisplay, displayType})
     return (
    <div className="VideoWrapper">
        <Col>
-       
-       <Row>
+       <Row className="d-flex justify-content-center">
        {displayType ? ListItems : ThumbNails }
        </Row>
-       <Pagination aria-label="Page navigation example" style={{alignSelf: 'flex-end'}}>
-       <PaginationItem>
-        <PaginationLink first href="#" />
-      </PaginationItem>
-      <PaginationLink href="#">
-          1
-        </PaginationLink>
-        <PaginationLink href="#">
-          2
-        </PaginationLink>
-        <PaginationLink href="#">
-          3
-        </PaginationLink>
-        <PaginationLink last href="#" />
-       </Pagination>
        </Col>
    
    </div>

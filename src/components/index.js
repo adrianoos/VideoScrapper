@@ -3,4 +3,6 @@ export { default as NavButtons } from './NavButtons';
 export { default as VideoWrapper } from './VideoWrapper';
 export { default as VideoCard } from './VideoCard';
 export { default as ListItem } from './ListItem';
+export { default as VideoPlayBack } from './VideoPlayBack';
+
 
