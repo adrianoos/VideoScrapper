@@ -5,7 +5,7 @@ import axios from 'axios';
 const GetByIdVimeo = async (ID) => {
    try {
     
-    const Token = '3a3bdb617776994351b4ee7f79a99557'
+    const Token = process.env.REACT_APP_VIMEO_KEY
     const response = await axios.get(`https://api.vimeo.com/videos/${ID}`, {
        headers: {
        Authorization: `Bearer ${Token}`,
