@@ -1,8 +1,3 @@
-.App {
-  padding: 10px;
-  width: 98vw;
-  color:aliceblue
-}
 
 .VideoWrapper {
   height: 75vh;
@@ -13,10 +8,4 @@
   flex-direction: row;
   justify-content:space-between;
   padding: 10px;
-}
-.VideoCard {
-  flex-basis: 46vh;
-  height: 65vh;
-  border: 1px solid black;
-  margin: 10px;
 }

@@ -26,17 +26,31 @@ useEffect(() => {
 
  const FetchData = async (urls) =>{
    const newArr = []
-
+   
   for (const item of urls) {
      
        const url = item.url
        let ID =''
        let response = ''
        let favs = item.favs
+       let isnum = /^\d+$/.test(url);
 
-      if (url.includes("youtu") && url.length > 30) {
+       // NOW:
+// DLA YT sprawdza czy zawiera youtu i jest dłuższy niż 30 lub krótszy niż 30 długi i krótki link
+// wystarczyło by dodać na początku jeśli url.length < 13 i zawiera literę lub _ to procesujemy YT fetchem
+// jeśli nie zawiera same cyfry procesujemy vimeo fetchem
+
+      if (url.length < 13 && isnum) {
+        ID = url
+        response = GetByIdVimeo(ID);
+
+      } else if (url.length < 13 && !isnum) {
+        ID = url
+        response = GetByIdYouTube(ID)
+      } else if (url.includes("youtu") && url.length > 30) {
         ID = url.slice(url.search("=", 0) + 1, url.length);
         response = GetByIdYouTube(ID);
+
 
        } else if (url.includes("youtu") && url.length < 30) {
          ID = url.slice(url.search(".be", 0) + 4, url.length)
@@ -54,6 +68,7 @@ useEffect(() => {
        
 }
 setDisplay(newArr)
+console.log(display)
 };
 
 const DeleteFromList = (date) =>{
