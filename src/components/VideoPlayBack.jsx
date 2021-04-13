@@ -19,7 +19,7 @@ const VideoPlayBack = (props) => {
       
         return (
          <div className={className}>
-            <Button style={{minWidth:'6vw'}} onClick={toggle}>{buttonLabel}</Button>
+            <Button className='shadow btn btn-outline-dark' style={{minWidth:'6vw'}} onClick={toggle}>{buttonLabel}</Button>
             <Modal isOpen={modal} toggle={toggle} style={{minWidth: '80vw'}}>
               <ModalHeader toggle={toggle}></ModalHeader>
               <ModalBody style={{minHeight: '80vh'}}>

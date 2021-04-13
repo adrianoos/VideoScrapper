@@ -7,12 +7,12 @@ const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, U
   
 
     return (
-   <div className="VideoCard">
-        <Card className="d-flex bd-highlight" body inverse style={{ backgroundColor: '#333', height:'100%'}}>
-          <CardImg className="m-1 flex-grow-1 bd-highlight" top width="100%" src={thumb} alt="Card image cap"/>
+   
+        <Card className="shadow d-flex bd-highlight m-1" body inverse style={{maxHeight:'65vh', maxWidth: '22vw', background: 'grey'}}>
+          <CardImg className="shadow m-1 flex-grow-1 bd-highlight" top width="100%" src={thumb} alt="Card image cap"/>
             <CardBody className="m-1 bd-highlight" >
-               {title ? <CardTitle tag="h6">TITLE: {title}</CardTitle> : ''}
-               {views ? <CardSubtitle tag="h6" className="mb-2 text-muted">Views: {views}</CardSubtitle> : ''} 
+               { title ? <CardTitle tag="h6">TITLE: {title}</CardTitle> : ''}
+               { views ? <CardText>Views: {views}</CardText> : ''} 
                { likes ? <CardText>Likes: {likes}</CardText> : ''}
                { VideoId ? <CardText>Sorry video id: <strong>"{VideoId}"</strong> is incorrect</CardText> : '' }
                { date ? <CardText>Added: {date}</CardText> : '' }
@@ -23,16 +23,16 @@ const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, U
                </Col>
                 {likes ?
                <Col>
-               { favs ? <Button style={{background:'lightblue'}} onClick={() => UpdateFavs(date)}>Favorites</Button> :
-               <Button onClick={() => UpdateFavs(date)}>Favorites</Button>}
+               { favs ? <Button className='shadow btn btn-outline-dark' style={{background:'lightblue'}} onClick={() => UpdateFavs(date)}>Favorites</Button> :
+               <Button className='shadow btn btn-outline-dark' onClick={() => UpdateFavs(date)}>Favorites</Button>}
                </Col> : ''}
                <Col>
-               { likes ? <Button onClick={() => OnDelete(date)}>Delete</Button> :
-               <Button style={{backgroundColor: 'red'}} onClick={() => OnDelete(date)}>Delete</Button>}
+               { likes ? <Button className='shadow btn btn-outline-dark' onClick={() => OnDelete(date)}>Delete</Button> :
+               <Button className='shadow btn btn-outline-dark' style={{backgroundColor: 'red'}} onClick={() => OnDelete(date)}>Delete</Button>}
                </Col>
               </Row>
             </Card> 
-   </div>
+           
     );
   }
   

@@ -8,17 +8,17 @@ const NavButtons = ({ FavsToggle, FavsDisplay, SortbyDate, Sort, DeleteAll, Chan
      
       <Row>
         <Col>
-        { FavsDisplay ? <Button className='ml-1' style={{background: 'lightblue'}} onClick={() => FavsToggle()}>Favorites</Button> :
-         <Button className='m-1' onClick={() => FavsToggle()}>Favorites</Button>
+        { FavsDisplay ? <Button className='shadow ml-1' style={{background: 'lightblue'}} onClick={() => FavsToggle()}>Favorites</Button> :
+         <Button className='shadow m-1' onClick={() => FavsToggle()}>Favorites</Button>
         }
         {
-          Sort ? <Button className='m-1' style={{background: 'lightblue'}} onClick={() => SortbyDate()}>Newest</Button> : 
-          <Button className='m-1' onClick={() => SortbyDate()}>Oldest</Button>
+          Sort ? <Button className='shadow m-1' style={{background: 'lightblue'}} onClick={() => SortbyDate()}>Newest</Button> : 
+          <Button className='shadow m-1' onClick={() => SortbyDate()}>Oldest</Button>
         }      
-        <Button className='m-1' onClick={() => DeleteAll()}>Delete All</Button>
+        <Button className='shadow m-1' onClick={() => DeleteAll()}>Delete All</Button>
         {
-          displayType ? <Button className='m-1' style={{background: 'lightblue'}}  onClick={() => ChangeDisplay()}>Display: List</Button> :
-          <Button className='m-1' onClick={() => ChangeDisplay()}>Display: ThumbNails</Button>
+          displayType ? <Button className='shadow m-1' style={{background: 'lightblue'}}  onClick={() => ChangeDisplay()}>Display: List</Button> :
+          <Button className='shadow m-1' onClick={() => ChangeDisplay()}>Display: ThumbNails</Button>
         }
         </Col>
       </Row>
