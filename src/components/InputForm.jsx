@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Input, Jumbotron, Row,Col } from 'reactstrap';
 import useForm from './UseForm'
-import ValidateInfo from './ValidateInfo'
+import ValidateInfo from './ValidateInfo.jsx'
 
 const InputForm = ({ urls, setUrls }) => {
     const { UpdateInput, getUrl, inpValue, errors } = useForm(ValidateInfo, urls, setUrls) // custom hook 

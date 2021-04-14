@@ -1,25 +1,29 @@
 import React, { useState } from 'react';
 
-import { Button, Modal, ModalHeader, ModalFooter, ModalBody} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalFooter, ModalBody, CardImg} from 'reactstrap';
 
 const VideoPlayBack = (props) => {
      const {
           buttonLabel,
           className,
           videoId, 
-          url
+          url, 
+          Imgsrc,
+          btn
        } = props;
       
         const [modal, setModal] = useState(false);
         const toggle = () => setModal(!modal);
         const videoSrcYT = `https://www.youtube.com/embed/${videoId}`;
         const videoSrcVimeo = `https://player.vimeo.com/video/${videoId}`
+        const  isnum = /^\d+$/.test(url);
         let src =''
-        { url.includes('youtu') ? src=videoSrcYT : src=videoSrcVimeo}
+        { url.includes('vimeo') || isnum ? src=videoSrcVimeo : src=videoSrcYT}
       
         return (
          <div className={className}>
-            <Button className='shadow btn btn-outline-dark' style={{minWidth:'6vw'}} onClick={toggle}>{buttonLabel}</Button>
+{btn ? <Button className='shadow btn btn-outline-dark' style={{minWidth:'6vw'}} onClick={toggle}>{buttonLabel}</Button> :
+<CardImg className="shadow m-1 flex-grow-1 bd-highlight" top width="100%" src={Imgsrc} onClick={toggle} alt="Card image cap" style={{cursor:'pointer'}}/>}
             <Modal isOpen={modal} toggle={toggle} style={{minWidth: '80vw'}}>
               <ModalHeader toggle={toggle}></ModalHeader>
               <ModalBody style={{minHeight: '80vh'}}>
@@ -35,7 +39,6 @@ const VideoPlayBack = (props) => {
               </ModalFooter>
             </Modal>
             </div>
-           
         );
       }
       

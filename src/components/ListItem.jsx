@@ -6,22 +6,21 @@ import vimeoIcon from '@iconify-icons/logos/vimeo-icon';
 import youtubeIcon from '@iconify-icons/logos/youtube-icon';
 
 
-const ListItem = ({title, favs, UpdateFavs, date, likes, OnDelete, PlayBackId, url, data, Col}) => {
+const ListItem = ({title, favs, UpdateFavs, date, OnDelete, PlayBackId, url, data, ID }) => {
     return (
   <ListGroup className='shadow m-1'>
       <ListGroupItem className="d-flex bd-highlight" style={{background: 'darkgrey', minWidth:'80vw'}}>
-        { title ? <VideoPlayBack buttonLabel={title} className='flex-grow-1 bd-highlight' videoId={PlayBackId} url={url}/> :
+        { title ? <VideoPlayBack buttonLabel={title} className='flex-grow-1 bd-highlight' videoId={PlayBackId} url={url} btn={true}/> :
           <Button style={{width: '60vw'}}className="m-1 bd-highlight">Incorect Video ID</Button>}
-          { data ?
+          { date ?
             <Row>
              { url.includes('youtu') ? <Icon icon={youtubeIcon} data-icon="line-md:image-twotone"/> : <Icon icon={vimeoIcon} /> }
              </Row> : ''}
-          { data ? <span>
+          { date ? <span>
           {favs ? <Button className="shadow p-2 m-1 bd-highlight" style={{background:'lightblue'}} onClick={() => UpdateFavs(date)}>Favorites</Button> :
             <Button className="shadow p-2 m-1 bd-highlight" onClick={() => UpdateFavs(date)}>Favorites</Button>}
              </span> : '' }
-          { likes ? <Button className="shadow p-2 m-1 bd-highlight" onClick={() => OnDelete(date)}>Delete</Button> :
-                    <Button className="shadow p-2 m-1 bd-highlight" style={{backgroundColor: 'red'}} onClick={() => OnDelete(date)}>Delete</Button>}
+          { date && <Button className="shadow p-2 m-1 bd-highlight" onClick={() => OnDelete(ID)}>Delete</Button>}
       </ListGroupItem>
     </ListGroup>
    
