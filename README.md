@@ -5,7 +5,8 @@ https://adrianoos.github.io/VideoScrapper/
 
 Project made according to specification for recrutiment task
 
-Storage for favorites videos from Vimeo &amp; Youtube
+Storage of favorites videos from Vimeo &amp; Youtube in one place
+
 Features:
 - store items in LocalStorage
 - playback from original sources
@@ -13,5 +14,6 @@ Features:
 - two display types thumbnails and list
 - sort by date
 - clear all data base
+- upload IDs from external file 
 
 
