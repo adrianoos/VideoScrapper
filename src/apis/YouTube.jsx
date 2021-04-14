@@ -3,7 +3,6 @@ import axios from 'axios';
 const GetByIdYouTube = async (ID) => {
     const key=process.env.REACT_APP_YTKEY
     try {
-
 const response = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${ID}&key=${key}`)
 const resp2 = await axios.get(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${ID}&key=${key}`)
 const mofifiedResponse = {
@@ -13,7 +12,6 @@ const mofifiedResponse = {
     views: resp2.data.items[0].statistics.viewCount
 }
 return mofifiedResponse
-
 } catch (error) {
     if (error) {
         return
@@ -21,5 +19,5 @@ return mofifiedResponse
 }
 };
 
-export default GetByIdYouTube
+export default GetByIdYouTube;
 
