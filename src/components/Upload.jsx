@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, Input, Container } from 'reactstrap';
 
 export const Upload = (props) => {
- const { buttonLabel, urls, setUrls } = props;
+ const { buttonLabel, urls, setUrls, className } = props;
  const [modal, setModal] = useState(false);
  const toggle = () => setModal(!modal);
     
@@ -29,7 +29,7 @@ toggle()
 
     return (
     <Container id='uplContainer'>
-        <Button className='shadow' id='uplButton' onClick={toggle}>{buttonLabel}</Button>
+        <Button className={className} id='uplButton' onClick={toggle}>{buttonLabel}</Button>
         <Modal isOpen={modal} toggle={toggle} style={{width: '30vw', height: '10vh'}}>
           <ModalHeader toggle={toggle}>Upload Video IDs or URLS from JSON File format ['id1', 'id2', 'etc']</ModalHeader>
           <ModalBody style={{minHeight: '10vh'}}>

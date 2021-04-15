@@ -22,7 +22,7 @@ const VideoPlayBack = (props) => {
       
         return (
          <div className={className}>
-{btn ? <Button className='shadow btn btn-outline-dark' style={{minWidth:'6vw'}} onClick={toggle}>{buttonLabel}</Button> :
+{btn ? <Button className='shadow btn btn-outline-dark' id='titleBtn' style={{minWidth:'6vw'}} onClick={toggle}>{buttonLabel}</Button> :
 <CardImg className="shadow m-1 flex-grow-1 bd-highlight" top width="100%" src={Imgsrc} onClick={toggle} alt="Card image cap" style={{cursor:'pointer'}}/>}
             <Modal isOpen={modal} toggle={toggle} style={{minWidth: '80vw'}}>
               <ModalHeader toggle={toggle}></ModalHeader>

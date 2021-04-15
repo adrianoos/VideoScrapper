@@ -9,7 +9,7 @@ const InputForm = ({ urls, setUrls }) => {
  <div>
     <Form onSubmit={getUrl}>
      <FormGroup>
-      <Jumbotron className='shadow' style={{background:'rgb(141, 141, 141)'}}>
+      <Jumbotron className='shadow' style={{background:'rgb(202, 189, 189)'}}>
         <h1 className="display-4">Vimeo and YouTube Scrapper</h1>
         <hr className="my-2" />
         <p className="lead">Place where You can store your favorites videos</p>
@@ -18,12 +18,9 @@ const InputForm = ({ urls, setUrls }) => {
           </Input>
              {errors && <h2>{errors}</h2>}
      </FormGroup>
-     <Row >
-     <Col sm="12" md={{ size: 6, offset: 3 }}>
-     <Button className='shadow m-2' size="sm" block>Add</Button>
+     <Col>
+     <Button className='shadow class="btn btn-secondary btn-sm"' block>Add</Button>
      </Col>
-        
-        </Row>
     </Form>
     
  </div>

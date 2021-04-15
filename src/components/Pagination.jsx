@@ -7,7 +7,7 @@
          pageNumbers.push(i)
      }
      return (
-      <Container className="d-flex justify-content-center" id=''>
+      <Container className="d-flex justify-content-center" id='paginCnt'>
           {pageNumbers.map( number => (
           <span key={number}>
            { currentPage === number ?
