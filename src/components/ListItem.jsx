@@ -10,7 +10,7 @@ const ListItem = ({title, favs, UpdateFavs, date, OnDelete, PlayBackId, url, ID 
     return (
   <ListGroup className='shadow m-1' id='ListItem'>
       <ListGroupItem className="d-flex bd-highlight" style={{background: 'darkgrey', minWidth:'80vw'}}>
-        { title ? <VideoPlayBack buttonLabel={title} className='flex-grow-1 bd-highlight' videoId={PlayBackId} url={url} btn={true}/> :
+        { title ? <VideoPlayBack buttonLabel={title} id={'listItemBtn'} className='flex-grow-1 bd-highlight' videoId={PlayBackId} url={url} btn={true}/> :
           <Button style={{width: '60vw'}}className="m-1 bd-highlight">Incorect Video ID</Button>}
           { date ?
             <Row>

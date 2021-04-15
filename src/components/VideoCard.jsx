@@ -8,7 +8,7 @@ const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, U
     return (
     <Card className="shadow m-1" id='VideoCard'>
          <VideoPlayBack videoId={PlayBackId} url={url} Imgsrc={thumb} btn={false}/>
-          <CardBody className="m-1 bd-highlight" >
+          <CardBody className="m-1 bd-highlight" id={'cardBody'}>
           { title ? <CardTitle tag="h6">TITLE: {title}</CardTitle> : ''}
           { views ? <CardText>Views: {views}</CardText> : ''} 
           { likes ? <CardText>Likes: {likes}</CardText> : ''}

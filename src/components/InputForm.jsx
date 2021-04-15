@@ -9,7 +9,7 @@ const InputForm = ({ urls, setUrls }) => {
  <div>
     <Form onSubmit={getUrl}>
      <FormGroup>
-      <Jumbotron className='shadow' style={{background:'rgb(202, 189, 189)'}}>
+      <Jumbotron className='shadow' style={{background:'rgb(146, 193, 207)'}}>
         <h1 className="display-4">Vimeo and YouTube Scrapper</h1>
         <hr className="my-2" />
         <p className="lead">Place where You can store your favorites videos</p>
