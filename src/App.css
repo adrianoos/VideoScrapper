@@ -1,8 +1,12 @@
 body {
   margin: 0;
   padding: 10px;
-  background-color: rgb(92, 91, 91) !important;
+  background-color: rgb(253, 253, 253) !important;
 }
+#uplContainer{
+  position: relative;
+  left:-15px;
+  }
 .VideoWrapper {
   height: 75vh;
   width: auto;
@@ -24,10 +28,12 @@ body {
 
 #VideoCard{
   align-items: center;
+  justify-content: center;
   width: 320px;
   height: 500px;
   padding: 10px;
-  background-color: gray;
+  background-color: rgb(202, 189, 189);
+  border: solid 1px;
 }
 #navBtnsCnt{
   width: 550px;
@@ -36,21 +42,51 @@ body {
 }
 
 @media screen and (max-width: 450px) { /*MOBILE SECTION*/
- 
+  body {
+  margin: 0;
+  padding: 10px;
+}
+#uplContainer{
+position: relative;
+left: -15px;
+top: -38px;
+}
+
   #navBtnsCnt{
-    display: flex;
-    justify-content:space-between;
-    width: 400px;
-    height: 40px;
-    margin: 10px;
+    position: relative;
+    left: 15px;
+    width: 350px;
+    height: 140px;
+    margin: 5px;
+  }
+  .navpg.shadow.m-1{
+    width: 100px;
+    height: 55px;
+    margin: 5px;
   }
   #VideoCard{
-    top: 40px;
+    top: 10pxpx;
     align-items: center;
+    justify-content: center;
     width: 450px;
+  }
+  #ListItem{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    top: 38px;
+    width: 400px;
+    margin: 10px;
+    
   }
   #paginCnt{
     position: relative;
-    top: 45px;
+    top: 0px;
+  }
+  #titleBtn{
+    width:100px;
+    overflow:hidden;
+    height:40px;
+    line-height:40px;
   }
 }
