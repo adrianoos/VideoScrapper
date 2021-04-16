@@ -5,6 +5,7 @@ import { InputForm, NavButtons, VideoWrapper } from './components'
 import { GetByIdYouTube } from './apis'
 import { GetByIdVimeo } from './apis'
 import { Pagination } from './components'
+import { FetchData } from './components/FetchData.jsx'
 import './App.css';
 
 const App = () => {
@@ -19,47 +20,10 @@ const [currentPage, setCurrentPage] = useState(1)
 const [videosPerPage] = useState(6)
  
 useEffect(() => {
-  FetchData(urls)
+  FetchData(urls, setDisplay)
   localStorage.clear()
   window.localStorage.setItem('urlsStore', JSON.stringify(urls))
  }, [urls])
-
- const FetchData = async (urls) =>{
-  const newArr = []
-   for (const item of urls) {
-       const url = item.url
-       let ID =''
-       let response = ''
-       let favs = item.favs
-       let isnum = /^\d+$/.test(url);
-
-  if (url.length < 13 && isnum) {
-        ID = url
-        response = GetByIdVimeo(ID);
-
-  } else if (url.length < 13 && !isnum) {
-        ID = url
-        response = GetByIdYouTube(ID)
-  } else if (url.includes("youtu") && url.length > 30) {
-        ID = url.slice(url.search("=", 0) + 1, url.length);
-        response = GetByIdYouTube(ID);
-
-  } else if (url.includes("youtu") && url.length < 30) {
-         ID = url.slice(url.search(".be", 0) + 4, url.length)
-         response = GetByIdYouTube(ID);
-
-  } else if (url.includes("vimeo",0)) {
-        ID = url.slice(url.search("com", 0) + 4, url.length)
-        response = GetByIdVimeo(ID);
-       }
-       const data = await response;
-       const date = item.date;
-       const key = parseInt(ID, 36) * Date.now()
-       let newItem = { data, url, date, ID, favs, key }
-     newArr.push(newItem)   
-}
-setDisplay(newArr)
-};
 
 const DeleteFromList = (key) =>{
  const urlsList = display.filter(el => el.key !== key)
