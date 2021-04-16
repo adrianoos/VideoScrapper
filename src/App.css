@@ -1,11 +1,15 @@
 body {
   margin: 0;
   padding: 10px;
-  background-color: rgb(255, 143, 143) !important;
+  background-color: rgb(3, 3, 3) !important;
 }
 #uplContainer{
   position: relative;
   left:-15px;
+  }
+  #Jumbotron{
+  color: rgb(168, 180, 0);
+  border-bottom: 4px double rgb(168, 180, 0) ;
   }
 .VideoWrapper {
   height: 75vh;
@@ -31,10 +35,11 @@ body {
   justify-content: center;
   align-items: center;
   width: 320px;
-  height: 500px;
+  height: 450px;
   padding: 10px;
-  background-color: rgb(146, 193, 207);
-  border: solid 1px;
+  background-color: rgb(3, 3, 3);
+  color: rgb(255, 255, 255);
+  border: solid 1px rgb(168, 180, 0);
 }
 #cardBody{
   display: flex;
