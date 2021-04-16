@@ -25,21 +25,21 @@ const VideoPlayBack = (props) => {
          <div className={className}>
 {btn ? <Button className='shadow btn btn-outline-dark' id={id} style={{minWidth:'6vw'}} onClick={toggle}>{buttonLabel}</Button> :
 <CardImg className="shadow m-1 flex-grow-1 bd-highlight" top width="100%" src={Imgsrc} onClick={toggle} alt="Card image cap" style={{cursor:'pointer'}}/>}
-            <Modal isOpen={modal} toggle={toggle} style={{minWidth: '80vw'}}>
-              <ModalHeader toggle={toggle}></ModalHeader>
-              <ModalBody style={{minHeight: '80vh'}}>
-              <iframe
+           { videoId ?       
+           <Modal isOpen={modal} toggle={toggle} style={{minWidth: '80vw'}}>
+             <ModalHeader toggle={toggle}></ModalHeader>
+               <ModalBody style={{minHeight: '80vh'}}>
+                 <iframe
                  frameBorder="0"
                  height="550vh"
                  width="100%"
-                 title="Video Player"
-                 src={src}
-              />
-              </ModalBody>
-              <ModalFooter>
-              </ModalFooter>
-            </Modal>
-            </div>
+                 title="Video Player"  
+                 src={src}/>
+               </ModalBody>
+             <ModalFooter>
+             </ModalFooter>
+           </Modal> : ''}
+           </div>
         );
       }
       
