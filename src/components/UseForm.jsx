@@ -15,24 +15,12 @@ const  getUrl = (e) => {
     const newItem = {url: inpValue, date: date, favs: false }
     setInpValue('')
     setErrors(ValidateInfo(inpValue))
-  
-if (ValidateInfo(inpValue) === ""){ 
-        
-let storage = JSON.parse(window.localStorage.getItem('urlsStore'))
-if (storage === null) {
-let storage = []
-storage.push(newItem)
-window.localStorage.setItem('urlsStore', JSON.stringify(storage))
-} else {
-storage.push(newItem)
-window.localStorage.setItem('urlsStore', JSON.stringify(storage))
-}      
+
+if (ValidateInfo(inpValue) === "") {        
 setUrls(urls.concat(newItem))
  }
 };
-
 return { UpdateInput, getUrl, inpValue, errors, setErrors }
-
 };
 
 
