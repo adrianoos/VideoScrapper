@@ -11,9 +11,9 @@
           {pageNumbers.map( number => (
           <span key={number}>
            { currentPage === number ?
-           <Button className='shadow m-2' style={{background: 'lightblue'}} onClick={()=> paginate(number)} href='!#'>
+           <Button className='m-2 btn-warning' onClick={()=> paginate(number)} href='!#'>
            {number}</Button> : 
-           <Button className='shadow m-2' onClick={()=> paginate(number)} href='!#'>
+           <Button className='m-2' onClick={()=> paginate(number)} href='!#'>
            {number}</Button>}
           </span>
           ))}

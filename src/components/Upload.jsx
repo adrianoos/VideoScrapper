@@ -29,7 +29,7 @@ toggle()
 
     return (
     <span>
-        <Button className={className} id='uplButton' onClick={toggle}>{buttonLabel}</Button>
+        <Button className={className} id='uplButton ' onClick={toggle}>{buttonLabel}</Button>
         <Modal isOpen={modal}  toggle={toggle} id='uplModal'>
           <ModalHeader toggle={toggle}>Upload Video IDs or URLS from JSON File format ['id1', 'id2', 'etc']</ModalHeader>
           <ModalBody style={{minHeight: '10vh'}} >

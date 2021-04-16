@@ -9,7 +9,7 @@ import youtubeIcon from '@iconify-icons/logos/youtube-icon';
 const ListItem = ({title, favs, UpdateFavs, date, OnDelete, PlayBackId, url, ID }) => {
     return (
   <ListGroup className='shadow m-1' id='ListItem'>
-      <ListGroupItem className="d-flex bd-highlight" style={{background: 'darkgrey', minWidth:'80vw'}}>
+      <ListGroupItem className="d-flex bd-highlight" style={{background: 'rgb(48, 48, 48)', minWidth:'80vw'}}>
         { title ? <VideoPlayBack buttonLabel={title} id={'listItemBtn'} className='flex-grow-1 bd-highlight' videoId={PlayBackId} url={url} btn={true}/> :
                   <VideoPlayBack buttonLabel={'Incorrect Video ID'} id={'listItemBtn'} className='flex-grow-1 bd-highlight' videoId={''} url={''} btn={true}/>}
         { title ?

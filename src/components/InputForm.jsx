@@ -4,12 +4,12 @@ import useForm from './UseForm'
 import ValidateInfo from './ValidateInfo.jsx'
 
 const InputForm = ({ urls, setUrls }) => {
-    const { UpdateInput, getUrl, inpValue, errors } = useForm(ValidateInfo, urls, setUrls) // custom hook 
+    const { UpdateInput, getUrl, inpValue, errors } = useForm(ValidateInfo, urls, setUrls)
     return (
  <div>
     <Form onSubmit={getUrl}>
      <FormGroup>
-      <Jumbotron className='shadow' style={{background:'rgb(146, 193, 207)'}}>
+      <Jumbotron className='shadow' id='Jumbotron' style={{background:'rgb(3, 3, 3)'}}>
         <h1 className="display-4">Vimeo and YouTube Scrapper</h1>
         <hr className="my-2" />
         <p className="lead">Place where You can store your favorites videos</p>
@@ -19,7 +19,7 @@ const InputForm = ({ urls, setUrls }) => {
              {errors && <h2>{errors}</h2>}
      </FormGroup>
      <Col>
-     <Button className='shadow class="btn btn-secondary btn-sm"' block>Add</Button>
+     <Button className='shadow class="btn btn-warning btn-sm"' block>Add</Button>
      </Col>
     </Form>
     

@@ -22,12 +22,12 @@ const VideoCard = ({title, thumb, views, favs, likes, OnDelete, date, VideoId, U
                  </Col> : '' }
                  { title ?
                  <Col>
-                   { favs ? <Button className='shadow btn btn-outline-dark' style={{background:'lightblue'}} onClick={() => UpdateFavs(date)}>Favorites</Button> :
-                  <Button className='shadow btn btn-outline-dark' onClick={() => UpdateFavs(date)}>Favorites</Button>}
+                   { favs ? <Button className='btn btn-warning' style={{background:'lightblue'}} onClick={() => UpdateFavs(date)}>Favorites</Button> :
+                  <Button className='btn btn-warning' onClick={() => UpdateFavs(date)}>Favorites</Button>}
                  </Col> : ''}
                  <Col>
-                   { title ? <Button className='shadow btn btn-outline-dark' onClick={() => OnDelete(ID)}>Delete</Button> :
-                   <Button className='shadow btn btn-outline-dark' style={{backgroundColor: 'red'}} onClick={() => OnDelete(ID)}>Delete</Button>}
+                   { title ? <Button className='btn btn-warning' onClick={() => OnDelete(ID)}>Delete</Button> :
+                   <Button className='btn btn-warning' style={{backgroundColor: 'red'}} onClick={() => OnDelete(ID)}>Delete</Button>}
                  </Col>
             </Row>
       </Card> 
