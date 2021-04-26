@@ -41,8 +41,9 @@ switch (true) {
 };
        const data = await response;
        const date = item.date;
+       const dateInMs = item.dateInMs;
        const key = parseInt(ID, 36) * Date.now()
-       let newItem = { data, url, date, ID, favs, key }
+       let newItem = { data, url, date, ID, favs, key, dateInMs }
      newArr.push(newItem)   
 }
 setDisplay(newArr)

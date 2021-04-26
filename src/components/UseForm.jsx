@@ -12,7 +12,7 @@ const  getUrl = (e) => {
     e.preventDefault()
     const ID = Date.now()
     const date = new Date(ID).toLocaleString()
-    const newItem = {url: inpValue, date: date, favs: false }
+    const newItem = {url: inpValue, date: date, favs: false, dateInMs: ID }
     setInpValue('')
     setErrors(ValidateInfo(inpValue))
 
