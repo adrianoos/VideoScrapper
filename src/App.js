@@ -48,10 +48,20 @@ setDispBackUp(display)
  favsDisplay ? setDisplay(dispBackUp) : setDisplay(favsArr)
 };
 
-const SortbyDate = () =>{
-  setSort(!sort)
-  display.reverse()
+const SortbyDate = () =>{ 
+  switch(true) {
+    case sort == false:
+      setSort(!sort) 
+      display.sort((a,b) => ( b.dateInMs - a.dateInMs))
+      break;
+    case sort == true:
+      setSort(!sort)
+      display.sort((a,b) => ( a.dateInMs - b.dateInMs))
+      break;
+  }
 };
+
+
 
 const DeleteAll = async () =>{
   onConfirm({
